@@ -65,6 +65,7 @@ def detect_faces():
     return emotions
 
 # uri path detect faces; returns dictionary of emotions
+
 def detect_faces_uri(uri):
     """Detects faces in the file located in Google Cloud Storage or the web."""
     from google.cloud import vision
@@ -154,6 +155,8 @@ def main(input_filename, output_filename, max_results):
 # test scripts
 main(os.path.relpath('aidanheadshot.jpg'), os.path.relpath('snipedaidanheadshot.jpg'),1)
 emot = detect_faces()
+
 print("DICTIONARY OF EMOTIONS")
 for pair in emot.items():
     print(pair)
+
