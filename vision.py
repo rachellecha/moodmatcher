@@ -21,7 +21,6 @@ def convert_likelyhood_to_int(str):
                         'VERY_LIKELY': 4}
     return likelihood_nums[str]
 
-
 # os path detect faces; returns dictionary of emotions
 def detect_faces():
     # client for image annotate vision 
@@ -151,6 +150,7 @@ def main(input_filename, output_filename, max_results):
         image.seek(0)
         highlight_faces(image, faces, output_filename)
 
+
 # test scripts
 main(os.path.relpath('aidanheadshot.jpg'), os.path.relpath('snipedaidanheadshot.jpg'),1)
 emot = detect_faces()
@@ -158,4 +158,3 @@ emot = detect_faces()
 print("DICTIONARY OF EMOTIONS")
 for pair in emot.items():
     print(pair)
-

@@ -1,3 +1,3 @@
 # Mood Matcher
 
-The Best
+Developed by Aidan Andrucyk and Rachelle Cha
