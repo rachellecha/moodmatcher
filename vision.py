@@ -9,6 +9,18 @@ from google.cloud.vision import types
 # drawing tools using Pillow
 from PIL import Image, ImageDraw
 
+#package for uri
+from binascii import a2b_base64
+
+'''data = request.args['picture']
+data = data[22:]
+
+binary_data = a2b_base64(data)
+
+fd = open('image.png', 'wb')
+fd.write(binary_data)
+fd.close()'''
+
 # set the os GCP APP varibale
 os.environ['GOOGLE_APPLICATION_CREDENTIALS']=r'VisionAPI/moodmatchervision.json'
 
@@ -27,7 +39,7 @@ def detect_faces():
     client = vision.ImageAnnotatorClient()
 
     # image to send
-    file_name = os.path.relpath('aidanheadshot.jpg')
+    file_name = os.path.relpath('image.png')
 
     #reading in the image file to memory
     with io.open(file_name, 'rb') as image_file:
@@ -140,7 +152,7 @@ def highlight_faces(image, faces, output_filename):
     im.save(output_filename)
 
 def main(input_filename, output_filename, max_results):
-    with open(input_filename, 'rb') as image:
+    with open('input_filename', 'rb') as image:
         faces = detect_face(image, max_results)
         print('Found {} face{}'.format(
             len(faces), '' if len(faces) == 1 else 's'))
@@ -152,9 +164,12 @@ def main(input_filename, output_filename, max_results):
 
 
 # test scripts
-main(os.path.relpath('aidanheadshot.jpg'), os.path.relpath('snipedaidanheadshot.jpg'),1)
+#main(os.path.relpath('aidanheadshot.jpg'), os.path.relpath('snipedaidanheadshot.jpg'),1)
 emot = detect_faces()
 
 print("DICTIONARY OF EMOTIONS")
 for pair in emot.items():
     print(pair)
+
+
+
