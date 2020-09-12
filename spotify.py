@@ -9,10 +9,6 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import spotipy.util as util
 import json
 
-client_id = '9d5dc983184743aa992c6a6b81fa44b5'
-client_secret = 'b7f6d9fa451e406a98eb541247a63de6'
-
-
 # get username from terminal
 username = "12171678313"
 
