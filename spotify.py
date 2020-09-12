@@ -6,127 +6,35 @@ import base64
 
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-from spotify_client import *
+import spotipy.util as util
+import json
 
-client_id = '9d5dc983184743aa992c6a6b81fa44b5'
-client_secret = 'b7f6d9fa451e406a98eb541247a63de6'
+# get username from terminal
+username = "12171678313"
 
-'''
-SPOTIPY_CLIENT_ID = '9d5dc983184743aa992c6a6b81fa44b5'
-SPOTIPY_CLIENT_SECRET = 'b7f6d9fa451e406a98eb541247a63de6'
-# export SPOTIPY_REDIRECT_URI='your-app-redirect-url'
+#12171678313
+
+#Erase cache and prompt for user permission
 
 try:
     token = util.prompt_for_user_token(username)
 except:
     #os.remove(".cache-{}".format(username))
-    token = token = util.prompt_for_user_token(username, client_id='f572cf52d72b4e44ac55d6c14ba6f74a', client_secret='18f76a14e1554ad69b2d51070a9a67eb', redirect_uri='https://google.com/')
+    token = token = util.prompt_for_user_token(username, client_id='9d5dc983184743aa992c6a6b81fa44b5', client_secret='b7f6d9fa451e406a98eb541247a63de6', redirect_uri='https://google.com/')
 
+#create spotify object
+spotifyObject = spotipy.Spotify(auth=token)
 
-scope = "user-library-read"
+input = input("Song Name? ")
 
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
+song = spotifyObject.search(input, 1, 0, "track")
 
-results = sp.current_user_saved_tracks()
-for idx, item in enumerate(results['items']):
-    track = item['track']
-    print(idx, track['artists'][0]['name'], " – ", track['name'])
+album_cover = song['tracks']['items'][0]['album']['images'][0]['url']
 
+print(album_cover)
 
-'''
+# print(json.dumps(song, sort_keys = True, indent=4))
 
-client_creds = f"{client_id}:{client_secret}"
-client_creds_b64 = base64.b64encode(client_creds.encode())
+trackURI = song["tracks"]["items"][0]["uri"]
 
-token_url = "https://accounts.spotify.com/api/token"
-method = "POST"
-token_data = {
-    "grant_type": "client_credentials"
-}
-token_headers = {
-    "Authorization": f"Basic {client_creds_b64.decode()}" # <base64 encoded client_id:client_secret>
-}
-
-r = requests.post(token_url, data=token_data, headers=token_headers)
-valid_request = r.status_code in range(200, 299)
-
-if valid_request:
-    token_response_data = r.json()
-    now = datetime.datetime.now()
-    access_token = token_response_data['access_token']
-    expires_in = token_response_data['expires_in'] # seconds
-    expires = now + datetime.timedelta(seconds=expires_in)
-    did_expire = expires < now
-
-class SpotifyAPI(object):
-    access_token = None
-    access_token_expires = datetime.datetime.now()
-    access_token_did_expire = True
-    client_id = None
-    client_secret = None
-    token_url = "https://accounts.spotify.com/api/token"
-    
-    def __init__(self, client_id, client_secret, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.client_id = client_id
-        self.client_secret = client_secret
-
-    def get_client_credentials(self):
-        """
-        Returns a base64 encoded string
-        """
-        client_id = self.client_id
-        client_secret = self.client_secret
-        if client_secret == None or client_id == None:
-            raise Exception("You must set client_id and client_secret")
-        client_creds = f"{client_id}:{client_secret}"
-        client_creds_b64 = base64.b64encode(client_creds.encode())
-        return client_creds_b64.decode()
-    
-    def get_token_headers(self):
-        client_creds_b64 = self.get_client_credentials()
-        return {
-            "Authorization": f"Basic {client_creds_b64}"
-        }
-    
-    def get_token_data(self):
-        return {
-            "grant_type": "client_credentials"
-        } 
-    
-    def perform_auth(self):
-        token_url = self.token_url
-        token_data = self.get_token_data()
-        token_headers = self.get_token_headers()
-        r = requests.post(token_url, data=token_data, headers=token_headers)
-        if r.status_code not in range(200, 299):
-            return False
-        data = r.json()
-        now = datetime.datetime.now()
-        access_token = data['access_token']
-        expires_in = data['expires_in'] # seconds
-        expires = now + datetime.timedelta(seconds=expires_in)
-        self.access_token = access_token
-        self.access_token_expires = expires
-        self.access_token_did_expire = expires < now
-        return True
-
-spotify = SpotifyAPI(client_id, client_secret)
-spotify.perform_auth()
-
-access_token = spotify.access_token
-print(access_token)
-
-headers = {
-    "Authorization": f"Bearer {access_token}"
-}
-endpoint = "https://api.spotify.com/v1/search"
-data = urlencode({"q": "Time", "type": "track"})
-# print(data)
-
-lookup_url = f"{endpoint}?{data}"
-print(lookup_url)
-r = requests.get(lookup_url, headers=headers)
-print(r.status_code)
-
-# print(r.json())
+searchResults = spotifyObject.audio_features(trackURI)
