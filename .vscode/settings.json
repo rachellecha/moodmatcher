@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "VisionAPI\\Scripts\\python.exe",
+    "python.autoComplete.extraPaths": ["./path-to-your-code"]
+}

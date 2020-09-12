@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "moodmatcher",
+  "private_key_id": "765e8fe747f50919467e8921991ca8f6085f6733",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCapTfuN339R5wx\n6y7yerAalF7NWsGSlGekAJH93EhXavXEHyGWf/1M+8BCk1RrIqmHnu+DCkMDVEgk\n+h8GAX9BPYjVF89SG8Jv5RS8p+m0xGS4hxwex7mA3RjBCZLIVY+mT1Hut6pWYn2n\nBYKcA8QTgnBxePuAIh1ZKfEtBNV2Az/xBbxUZzWLVJRPhfZSZZICZeX/5m+O4f+P\npZK/03yIAI4kio3R+61GPQz9D3M/LkZ8y18Bf6IVvxzDLVAJVwVSUCddEM7Q5iQJ\nMFW8LMtG2BUUWw6u43Pyx/5Z/GADdTzRzdL/Af7KuInKZ4A4OShnoW8tOEvkijhO\neIJer7TxAgMBAAECggEAAKNNKhgOgVH0ofwUsylbD/EBZxrIZktjFg5ui7vcjIfD\naxivHHN7XwBBgxofz1qoP7KhzZ+S4TD4JIw86TBuZEgrB/3+Jpo4thodeMhp3WCw\nrauDq9jVD2QEwHRtUj2QHHaCoa0eRcGdlRJ1FHcA2GJsW6YicMfd6R/pf8Rfq7Sc\nFH3R42k/Wr8JfKUDhvHjUM75ygKH2ndUXfKL3gLv+PBpdVGuOJhivdYkqHqhLvF1\nGKu9SHgOPYNqU2lkxdTlJGimwvPKLufovBg2X1JpllUCAq9oD6qb5X+KMMovOlU7\nNSJeHEzaM/CHHcl3LdJDeLagax7P3+PGgdfJdKyi8QKBgQDWlGWuDkuhJ8sff51f\nlvlIBW4dK9AHiPfklPbDFvE8SJT7GZ6VYTEALsQP5z+NGPPnK/ksL3s62WkjFZ93\nP069AgZ2g7pVf1lKAjk6eAyaw0URy9kpGkovy2hF6yegaX0JyZfjv9PVQvKhBokR\nkg827QcGcKRztcRmgIFVeybC1QKBgQC4fyB8OGfgJzDZzx5nbB1xattwxeVK/EV9\nM+Y6I9xEyK8QnUGiUensVDA78Y3uITO0vO6mySxzo5En7ZU/ex3FqI1ld0bg09SH\n88KUmtH970gxWDYQIB3xCKhNHLhShkeMpiCNtPTd+BZZeSNHPFB9+CSLEUWQz3WU\n7ZGQ1O1frQKBgC1fn8iYWUGwinEUqRBnejrSeyBL/Wc6fUCmhy9lkIkwx9/44OGx\ndY0WVnsOaQ/K8Pg3Ai9nsuUUx/iVP+0VQ+8PmJJC9InTrevKYJOOgwvOsrI6qqbY\nWkuU9W2jdfOjmr8RE78i9wYna+rE2QMQIYt5v3yLIRsemnMaRT7wFZgpAoGACyAf\nZV5BZVL3ryq+Op5aaCx5byN/4DW2OwaWK4teDQfNBsN04cTuxkGNZw/57xIxfASo\nn4YiGBcU+cNp7JoQAYtYe3Xl4Ejl2Azq/usXHqj/QXqASBintZFAFOZWdyOBzQl3\njRQMcBY1ws97QSBx+iasjXZNK55XCNQKoyEz70ECgYEAzxFPPxSr9t1mGVXOz04d\n7lCeR8LRZTr2ZMcd4lcyEA4nfzaLLuYvIJCktpJN6BmOycETScocdkHSRVJbsWPA\nkSE/+qAaHaqK5OP/fX0YEYiWjkwDhOydAfNO1wzNyM0IZJFL1KnlhIqDq/ki2gIz\n1Il3f/z0wK2ustI9pnJUeIY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "mood-matcher@moodmatcher.iam.gserviceaccount.com",
+  "client_id": "107584304426316863574",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mood-matcher%40moodmatcher.iam.gserviceaccount.com"
+}
