@@ -164,7 +164,6 @@ def main(input_filename, output_filename, max_results):
 
 
 
-
 # test scripts
 #main(os.path.relpath('aidanheadshot.jpg'), os.path.relpath('snipedaidanheadshot.jpg'),1)
 emot = detect_faces()

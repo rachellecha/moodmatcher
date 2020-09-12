@@ -23,16 +23,26 @@ except:
 #create spotify object
 spotifyObject = spotipy.Spotify(auth=token)
 
-input = input("Song Name? ")
+emot = 'anger'
+playlist = ''
 
-song = spotifyObject.search(input, 1, 0, "track")
+if emot == 'joy':
+    playlist = '37i9dQZF1DXdPec7aLTmlC'
+elif emot == 'sorrow':
+    playlist = '37i9dQZF1DWSqBruwoIXkA'
+elif emot == 'anger':
+    playlist = '37i9dQZF1DXcfZ6moR6J0G'
+else:
+    playlist = '37i9dQZF1DX7HOk71GPfSw'
 
-album_cover = song['tracks']['items'][0]['album']['images'][0]['url']
+cover = spotifyObject.playlist_cover_image(playlist)
+playlist_cover = cover[0]['url']
 
-print(album_cover)
+playlist_url = spotifyObject.playlist(playlist)
 
-# print(json.dumps(song, sort_keys = True, indent=4))
+url = playlist_url['external_urls']['spotify']
 
-trackURI = song["tracks"]["items"][0]["uri"]
 
-searchResults = spotifyObject.audio_features(trackURI)
+print(playlist_cover)
+print(url)
+
