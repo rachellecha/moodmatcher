@@ -67,7 +67,6 @@ def detect_faces():
 # uri path detect faces; returns dictionary of emotions
 def detect_faces_uri(uri):
     """Detects faces in the file located in Google Cloud Storage or the web."""
-    from google.cloud import vision
     client = vision.ImageAnnotatorClient()
     image = vision.types.Image()
     image.source.image_uri = uri
