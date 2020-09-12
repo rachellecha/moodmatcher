@@ -1,8 +1,13 @@
+# Input/Output and Operating System status
 import io 
 import os 
 
+# Google Vision API
 from google.cloud import vision 
 from google.cloud.vision import types
+
+# drawing tools using Pillow
+from PIL import Image, ImageDraw
 
 # set the os GCP APP varibale
 os.environ['GOOGLE_APPLICATION_CREDENTIALS']=r'VisionAPI/moodmatchervision.json'
@@ -59,6 +64,7 @@ def detect_faces():
     # returns dictionary of emotions
     return emotions
 
+# uri path detect faces; returns dictionary of emotions
 def detect_faces_uri(uri):
     """Detects faces in the file located in Google Cloud Storage or the web."""
     from google.cloud import vision
@@ -91,7 +97,7 @@ def detect_faces_uri(uri):
 
     return emotions
     
-'''
+
 def detect_face(face_file, max_results=4):
     """Uses the Vision API to detect faces in the given file.
 
@@ -130,8 +136,8 @@ def highlight_faces(image, faces, output_filename):
         # detection box in the output image
         draw.text(((face.bounding_poly.vertices)[0].x,
                    (face.bounding_poly.vertices)[0].y - 30),
-                  str(format(face.detection_confidence, '.3f')) + '%',
-                  fill='#FF0000')
+                  str(format(face.detection_confidence, '1f')) + '%',
+                  fill='#00ff00')
     im.save(output_filename)
 
 def main(input_filename, output_filename, max_results):
@@ -144,8 +150,9 @@ def main(input_filename, output_filename, max_results):
         # Reset the file pointer, so we can read the file again
         image.seek(0)
         highlight_faces(image, faces, output_filename)
-'''
 
+# test scripts
+main(os.path.relpath('aidanheadshot.jpg'), os.path.relpath('snipedaidanheadshot.jpg'),1)
 emot = detect_faces()
 print("DICTIONARY OF EMOTIONS")
 for pair in emot.items():
