@@ -11,8 +11,6 @@ from json.decoder import JSONDecodeError
 # get username from terminal
 username = "12171678313"
 
-#12171678313
-
 #Erase cache and prompt for user permission
 
 try:
