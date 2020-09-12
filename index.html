@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Matcher</title>
+</head>
+<body>
+
+    <div id="video wrap">
+        <video id= "video" playsinline autoplay></video>
+    </div>
+
+    <div id= "controller">
+        <button id= "snap"> Capture</button>
+    </div>
+
+    <canvas id= "canvas" width="1280" height="720"></canvas>
+
+<script>
+
+    'use strict';
+
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const snap = document.getElementById('snap');
+    const errorMsgElement = document.getElementById('span#ErrorMsg');
+
+    const constraints = {
+        audio: false,
+        video: {
+            width: 1280, height: 720
+        }
+    };
+
+async function init(){
+    try{
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);
+        handleSuccess(stream);
+    }
+    catch(e){
+        errorMsgElement.innerHTML = `navigator.getUserMedia.error:${e.toString()}`;
+    }
+}
+
+function handleSuccess(stream){
+    window.stream = stream;
+    video.srcObject = stream;
+}
+
+init();
+
+var context = canvas.getContext('2d');
+snap.addEventListener("click", function(){
+    context.drawImage(video, 0, 0, 1280, 720);
+});
+
+</script>
+</body>
+</html>
