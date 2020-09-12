@@ -5,7 +5,7 @@ from google.cloud import vision
 from google.cloud.vision import types
 
 # set the os GCP APP varibale
-os.environ['GOOGLE_APPLICATION_CREDENTIALS']=r'VisionAPI\moodmatchervision.json'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS']=r'VisionAPI/moodmatchervision.json'
 
 #client for image annotate vision 
 client = vision.ImageAnnotatorClient()

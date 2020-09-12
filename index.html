@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mood Matcher</title>
+    <script src="http://hongru.github.io/proj/canvas2image/canvas2image.js"></script>
 </head>
 <body>
 
@@ -15,7 +16,14 @@
         <button id= "snap"> Capture</button>
     </div>
 
-    <canvas id= "canvas" width="1280" height="720"></canvas>
+    <canvas id= "canvas" width="640" height="400"></canvas>
+
+    <div id="generate">
+        <form action="/feedback">
+            <input type="text" id="text" name="picture">
+            <button>Generate Playlist</button>
+        </form>
+    </div>
 
 <script>
 
@@ -29,7 +37,7 @@
     const constraints = {
         audio: false,
         video: {
-            width: 1280, height: 720
+            width: 640, height: 400
         }
     };
 
@@ -52,7 +60,10 @@ init();
 
 var context = canvas.getContext('2d');
 snap.addEventListener("click", function(){
-    context.drawImage(video, 0, 0, 1280, 720);
+    context.drawImage(video, 0, 0, 640, 400);
+    var dataURL = canvas.toDataURL();
+    document.getElementById("text").value = dataURL;
+
 });
 
 
