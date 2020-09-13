@@ -23,18 +23,20 @@ div {
 }
   
 h1{
-	font-size: 320%;
+	font-size: 300%;
 	font-size: bold;
 	color: #e9e9e9;
   }
 
 h2, h3, h4, h5 {
 	color: #b4b4b4;
+	font-family: 'Roboto', sans-serif;
 }
 
 p{
 	margin: 0;
 	color: #b4b4b4;
+	font-family: 'Roboto', sans-serif;
 }
   
 /* unvisited link */
@@ -63,14 +65,36 @@ a:active {
   
 button {
 	background-color: #4CAF50; /* Green */
-	border-radius: 10px;
+	margin-top: 5px;
+	margin-bottom: 20px;
+	border-radius: 15px;
+	border: none;
 	color: white;
-	padding: 15px 32px;
+	padding: 15px 35px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
-  }
+	font-weight: bold;
+	letter-spacing: 1px;
+	transition: 0.3s ease-in-out;
+}
+
+button:hover {
+	background-color: #0deb5a; /* Green */
+	margin-top: 5px;
+	margin-bottom: 20px;
+	border-radius: 15px;
+	border: none;
+	color: white;
+	padding: 15px 35px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 1px
+}
 
 .graph{
 	border-radius: 5%;
@@ -96,12 +120,30 @@ footer{
 	margin: 0;
   }
 
+#video {
+	border: 3px #b4b4b4 solid;
+	background-image: url(https://images.squarespace-cdn.com/content/v1/52f40137e4b087ee087f902a/1393354341124-FN9HL7WB5J2G92MF9JN8/ke17ZwdGBToddI8pDm48kFMCTgsMWSshoTEUf72IfJN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1Ud6-c3aruf7Z1Fzyq9Nmbhb9ovjctWNLvQmYZS3knwd9lzlwDjT8OAOS9F-OY2Zmdw/grey-gradient.jpg);
+	border-radius: 10%;
+	margin: 5 px;
+	width: 60%;
+}
+
+#canvas{
+	border: 3px #b4b4b4 solid;
+	border-radius: 10%;
+	background-image: url(https://images.squarespace-cdn.com/content/v1/52f40137e4b087ee087f902a/1393354341124-FN9HL7WB5J2G92MF9JN8/ke17ZwdGBToddI8pDm48kFMCTgsMWSshoTEUf72IfJN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1Ud6-c3aruf7Z1Fzyq9Nmbhb9ovjctWNLvQmYZS3knwd9lzlwDjT8OAOS9F-OY2Zmdw/grey-gradient.jpg);
+	background-repeat: no-repeat;
+	margin: 5 px;
+	width: 60%;
+}
+
 #container {
 	margin: 0px auto;
 	width: 500px;
 	height: 375px;
 	border: 10px #333 solid;
 }
+
 #videoElement {
 	width: 100%;
 	height: 375px;
@@ -109,3 +151,28 @@ footer{
 	border: 10px black solid;
 	border-radius: 5pt;
 }
+
+#generateplaylist {
+	display: none;
+}
+
+#playcover {
+	width: 50%;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	border: 3px #b4b4b4 solid;
+	border-radius: 10%;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+	transition: box-shadow 0.2s ease-in-out;
+}
+
+#playcover:hover {
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+#googleForm{
+	width: 100%;
+	height: 800px;
+	margin:0;
+	border-style: none;
+  }
