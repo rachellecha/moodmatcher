@@ -8,8 +8,6 @@ Cython==0.29.13
 Flask==1.1.1
 numpy==1.17.2
 brotli==1.0.9
-grpc_reflection==1.0.0
-grpc_tools==1.0.0
 ipaddr==2.2.0
 ordereddict==1.1
 Pillow==7.2.0
