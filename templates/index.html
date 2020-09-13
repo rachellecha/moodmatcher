@@ -7,17 +7,20 @@
     <title>Mood Matcher</title>
     <link rel="icon" type="image/png"
         href="https://lh3.googleusercontent.com/FWDiKmkyv7ZGizf-PIBYUSRwS8U3xkZPuhPp0ijJXVZCD7JJG9SwioXMamu5f40YdN1bi6HUPrQJe-R5MEUp3jsMP8wjL7iPDHzmyJy_Kw8AAk5jgivjN5mjM90e9AVWJgb9WyhpZ62cUq5CwWQNrvtrRxvzWBj_qEjJIAUOB9sY-a4CtifKVtHD3UvJxZzhmMiI2Z5S6ALvwxgeFFbn6TUCOi3rBBo72mQ43T_AiN9YeGNkJyiZ44d5GZTgVxMdhQ8QoGId_lsSwdQhLXU6tZi3r5mdP4hwMvrmF5LDtqlBnNoTeskRohZsOhR4CKMVtR5bHR0dAaEnpp8-epGLUW-3_pdJTPNf-jEiOP4IG1kNRNHIS9d6dGaaSYfA5gdRduQiHaWMjL1ZKzu7TpDtBwY_axHbx2dKa3UVuYGuybn8HK3qi-BONJp81aVD9y7dcdqGIa1s2CbAHmEc4wlZq5cSxxk8CS7iv-lx2wa00455F7b51gG_nw5KYpEcrySFWNgWo0NezOa1ZWaim0BRFZF4OVoL9f7bPv5BSxJ3eZcfS4SxmWbX-0ofRMRXbQl2mG77UNSPlLeOwxqCPoAxqVhQgGHCN19E9hy0F4qkw1sTZ2jY9Lx3m7OLR8YnAPpYe4_RXhYx_5LdkEIF8O8dG2yVVR9KMnfgTsa0dP08zh-j5C0OwaYds7s4uSTlZw=w1640-h624-no?authuser=0">
-   
-        <!--
+
+    <!--
     <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
     -->
 
-    
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="/static/styles/style.css">
-    
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
     <script src="http://hongru.github.io/proj/canvas2image/canvas2image.js"></script>
 </head>
 
@@ -34,102 +37,113 @@
 
     <!--NavBar-->
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #282828;">
-        
+
         <a class="navbar-brand" href="#">
             <!-- Logo -->
-            <img src="https://lh3.googleusercontent.com/FWDiKmkyv7ZGizf-PIBYUSRwS8U3xkZPuhPp0ijJXVZCD7JJG9SwioXMamu5f40YdN1bi6HUPrQJe-R5MEUp3jsMP8wjL7iPDHzmyJy_Kw8AAk5jgivjN5mjM90e9AVWJgb9WyhpZ62cUq5CwWQNrvtrRxvzWBj_qEjJIAUOB9sY-a4CtifKVtHD3UvJxZzhmMiI2Z5S6ALvwxgeFFbn6TUCOi3rBBo72mQ43T_AiN9YeGNkJyiZ44d5GZTgVxMdhQ8QoGId_lsSwdQhLXU6tZi3r5mdP4hwMvrmF5LDtqlBnNoTeskRohZsOhR4CKMVtR5bHR0dAaEnpp8-epGLUW-3_pdJTPNf-jEiOP4IG1kNRNHIS9d6dGaaSYfA5gdRduQiHaWMjL1ZKzu7TpDtBwY_axHbx2dKa3UVuYGuybn8HK3qi-BONJp81aVD9y7dcdqGIa1s2CbAHmEc4wlZq5cSxxk8CS7iv-lx2wa00455F7b51gG_nw5KYpEcrySFWNgWo0NezOa1ZWaim0BRFZF4OVoL9f7bPv5BSxJ3eZcfS4SxmWbX-0ofRMRXbQl2mG77UNSPlLeOwxqCPoAxqVhQgGHCN19E9hy0F4qkw1sTZ2jY9Lx3m7OLR8YnAPpYe4_RXhYx_5LdkEIF8O8dG2yVVR9KMnfgTsa0dP08zh-j5C0OwaYds7s4uSTlZw=w1640-h624-no?authuser=0" width="150" height="50"
-                class="d-inline-block align-top" alt="" loading="lazy">
-              
+            <img src="https://lh3.googleusercontent.com/FWDiKmkyv7ZGizf-PIBYUSRwS8U3xkZPuhPp0ijJXVZCD7JJG9SwioXMamu5f40YdN1bi6HUPrQJe-R5MEUp3jsMP8wjL7iPDHzmyJy_Kw8AAk5jgivjN5mjM90e9AVWJgb9WyhpZ62cUq5CwWQNrvtrRxvzWBj_qEjJIAUOB9sY-a4CtifKVtHD3UvJxZzhmMiI2Z5S6ALvwxgeFFbn6TUCOi3rBBo72mQ43T_AiN9YeGNkJyiZ44d5GZTgVxMdhQ8QoGId_lsSwdQhLXU6tZi3r5mdP4hwMvrmF5LDtqlBnNoTeskRohZsOhR4CKMVtR5bHR0dAaEnpp8-epGLUW-3_pdJTPNf-jEiOP4IG1kNRNHIS9d6dGaaSYfA5gdRduQiHaWMjL1ZKzu7TpDtBwY_axHbx2dKa3UVuYGuybn8HK3qi-BONJp81aVD9y7dcdqGIa1s2CbAHmEc4wlZq5cSxxk8CS7iv-lx2wa00455F7b51gG_nw5KYpEcrySFWNgWo0NezOa1ZWaim0BRFZF4OVoL9f7bPv5BSxJ3eZcfS4SxmWbX-0ofRMRXbQl2mG77UNSPlLeOwxqCPoAxqVhQgGHCN19E9hy0F4qkw1sTZ2jY9Lx3m7OLR8YnAPpYe4_RXhYx_5LdkEIF8O8dG2yVVR9KMnfgTsa0dP08zh-j5C0OwaYds7s4uSTlZw=w1640-h624-no?authuser=0"
+                width="150" height="50" class="d-inline-block align-top" alt="" loading="lazy">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
+
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="">Google Vision API<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="https://2020f.pennapps.com/" target="_blank">PennApps XXI </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="" target="_blank">Methodology       </a>
+                    <a class="nav-link" href="https://cloud.google.com/vision/docs/detecting-faces"
+                        target="_blank">Google Vision API <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="" target="_blank">Contact  </a>
+                    <a class="nav-link" href="https://firebase.google.com/" target="_blank">Google Firebase <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://developer.spotify.com/documentation/web-api/"
+                        target="_blank">Spotify API </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank">Flask </a>
                 </li>
         </div>
     </nav>
 
-    <br>
     <div class="box">
-        <h3>Welcome to the Degen Zone!</span></h3>
-    <div id="video wrap">
-        <video id="video" playsinline autoplay></video>
-    </div>
+        <h1>The Mood Matcher</h1>
+        <h3>a vibe for every mood</h3>
+        <div id="video wrap">
+            <video id="video" playsinline autoplay></video>
+        </div>
 
-    <div id="controller">
-        <button id="snap"> Capture</button>
-    </div>
+        <div id="controller">
+            <button id="snap">C A P T U R E</button>
+        </div>
 
-    <canvas id="canvas" width="640" height="400"></canvas>
+        <canvas id="canvas" width="640" height="400"></canvas>
 
-    <div id="generate">
-        <form action="/feedback">
-            <input type="text" id="text" name="emot">
-            <button>Generate Playlist</button>
-        </form>
-    </div>
+        <div id="generate">
+            <form action="/feedback">
+                <input type="text" id="generateplaylist" name="emot">
+                <br>
+                <button>Generate Playlist</button>
+            </form>
+        </div>
 
-    <script>
+        <script>
 
-        'use strict';
+            'use strict';
 
-        const video = document.getElementById('video');
-        const canvas = document.getElementById('canvas');
-        const snap = document.getElementById('snap');
-        const errorMsgElement = document.getElementById('span#ErrorMsg');
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const snap = document.getElementById('snap');
+            const errorMsgElement = document.getElementById('span#ErrorMsg');
 
-        const constraints = {
-            audio: false,
-            video: {
-                width: 640, height: 400
+            const constraints = {
+                audio: false,
+                video: {
+                    width: 640, height: 400
+                }
+            };
+
+            async function init() {
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+                    handleSuccess(stream);
+                }
+                catch (e) {
+                    errorMsgElement.innerHTML = `navigator.getUserMedia.error:${e.toString()}`;
+                }
             }
-        };
 
-        async function init() {
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia(constraints);
-                handleSuccess(stream);
+            function handleSuccess(stream) {
+                window.stream = stream;
+                video.srcObject = stream;
             }
-            catch (e) {
-                errorMsgElement.innerHTML = `navigator.getUserMedia.error:${e.toString()}`;
-            }
-        }
 
-        function handleSuccess(stream) {
-            window.stream = stream;
-            video.srcObject = stream;
-        }
+            init();
 
-        init();
+            var context = canvas.getContext('2d');
+            snap.addEventListener("click", function () {
+                context.drawImage(video, 0, 0, 640, 400);
+                var dataURL = canvas.toDataURL();
+                document.getElementById("generateplaylist").value = dataURL;
 
-        var context = canvas.getContext('2d');
-        snap.addEventListener("click", function () {
-            context.drawImage(video, 0, 0, 640, 400);
-            var dataURL = canvas.toDataURL();
-            document.getElementById("text").value = dataURL;
-
-        });
+            });
 
 
 
-    </script>
+        </script>
 
     </div>
 
 </body>
 <footer>
     <p>Developed by Aidan Andrucyk & Rachelle Cha</p>
-    <p><a href='https://github.com/rachellecha/moodmatcher'>Source Code</a></p>
+    <p><a href='https://github.com/rachellecha/moodmatcher' target="_blank">Source Code</a></p>
 </footer>
+
 </html>

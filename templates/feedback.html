@@ -1,15 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mood Matcher Feedback</title>
+    <link rel="icon" type="image/png"
+        href="https://lh3.googleusercontent.com/FWDiKmkyv7ZGizf-PIBYUSRwS8U3xkZPuhPp0ijJXVZCD7JJG9SwioXMamu5f40YdN1bi6HUPrQJe-R5MEUp3jsMP8wjL7iPDHzmyJy_Kw8AAk5jgivjN5mjM90e9AVWJgb9WyhpZ62cUq5CwWQNrvtrRxvzWBj_qEjJIAUOB9sY-a4CtifKVtHD3UvJxZzhmMiI2Z5S6ALvwxgeFFbn6TUCOi3rBBo72mQ43T_AiN9YeGNkJyiZ44d5GZTgVxMdhQ8QoGId_lsSwdQhLXU6tZi3r5mdP4hwMvrmF5LDtqlBnNoTeskRohZsOhR4CKMVtR5bHR0dAaEnpp8-epGLUW-3_pdJTPNf-jEiOP4IG1kNRNHIS9d6dGaaSYfA5gdRduQiHaWMjL1ZKzu7TpDtBwY_axHbx2dKa3UVuYGuybn8HK3qi-BONJp81aVD9y7dcdqGIa1s2CbAHmEc4wlZq5cSxxk8CS7iv-lx2wa00455F7b51gG_nw5KYpEcrySFWNgWo0NezOa1ZWaim0BRFZF4OVoL9f7bPv5BSxJ3eZcfS4SxmWbX-0ofRMRXbQl2mG77UNSPlLeOwxqCPoAxqVhQgGHCN19E9hy0F4qkw1sTZ2jY9Lx3m7OLR8YnAPpYe4_RXhYx_5LdkEIF8O8dG2yVVR9KMnfgTsa0dP08zh-j5C0OwaYds7s4uSTlZw=w1640-h624-no?authuser=0">
+
+    <!--
+    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    -->
+
+
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="/static/styles/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <script src="http://hongru.github.io/proj/canvas2image/canvas2image.js"></script>
 </head>
+
 <body>
-    <p>You are feeling {{emot}}!!</p>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
 
-    <img src="{{playlist_cover}}">
+    <!--NavBar-->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #282828;">
 
-    <a href="{{url}}">Click Here to Listen</a>
+        <a class="navbar-brand" href="#">
+            <!-- Logo -->
+            <img src="https://lh3.googleusercontent.com/FWDiKmkyv7ZGizf-PIBYUSRwS8U3xkZPuhPp0ijJXVZCD7JJG9SwioXMamu5f40YdN1bi6HUPrQJe-R5MEUp3jsMP8wjL7iPDHzmyJy_Kw8AAk5jgivjN5mjM90e9AVWJgb9WyhpZ62cUq5CwWQNrvtrRxvzWBj_qEjJIAUOB9sY-a4CtifKVtHD3UvJxZzhmMiI2Z5S6ALvwxgeFFbn6TUCOi3rBBo72mQ43T_AiN9YeGNkJyiZ44d5GZTgVxMdhQ8QoGId_lsSwdQhLXU6tZi3r5mdP4hwMvrmF5LDtqlBnNoTeskRohZsOhR4CKMVtR5bHR0dAaEnpp8-epGLUW-3_pdJTPNf-jEiOP4IG1kNRNHIS9d6dGaaSYfA5gdRduQiHaWMjL1ZKzu7TpDtBwY_axHbx2dKa3UVuYGuybn8HK3qi-BONJp81aVD9y7dcdqGIa1s2CbAHmEc4wlZq5cSxxk8CS7iv-lx2wa00455F7b51gG_nw5KYpEcrySFWNgWo0NezOa1ZWaim0BRFZF4OVoL9f7bPv5BSxJ3eZcfS4SxmWbX-0ofRMRXbQl2mG77UNSPlLeOwxqCPoAxqVhQgGHCN19E9hy0F4qkw1sTZ2jY9Lx3m7OLR8YnAPpYe4_RXhYx_5LdkEIF8O8dG2yVVR9KMnfgTsa0dP08zh-j5C0OwaYds7s4uSTlZw=w1640-h624-no?authuser=0"
+                width="150" height="50" class="d-inline-block align-top" alt="" loading="lazy">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://2020f.pennapps.com/" target="_blank">PennApps XXI </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://cloud.google.com/vision/docs/detecting-faces"
+                        target="_blank">Google Vision API <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://firebase.google.com/" target="_blank">Google Firebase <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://developer.spotify.com/documentation/web-api/"
+                        target="_blank">Spotify API </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank">Flask </a>
+                </li>
+        </div>
+    </nav>
+
+    <div class="box">
+
+    
+    <h1>You are likely {{emot}}!!!</h1>
+    <h5>Click on the <a href="{{url}}" target="_blank">art cover</a> below to be brought to your curated playlist</h5>
+
+    <a href="{{url}}" target="_blank">
+
+    <img id="playcover" src="{{playlist_cover}}" alt="Image of Album Cover">
+
+    </a>
+
+    <br>
+    <br>
+    <h4>Have any thoughts on the project?</h4>
+    <h3>We would LOVE to hear them!</h3>
+    <iframe id="googleForm" src="https://docs.google.com/forms/d/e/1FAIpQLScF_roKJ_nZRQlWAoqXx0hjz1qVbg9vz_GV2aAY4hFWPy_5tQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+</div>
 </body>
+<footer>
+    <p>Developed by Aidan Andrucyk & Rachelle Cha</p>
+    <p><a href='https://github.com/rachellecha/moodmatcher' target="_blank">Source Code</a></p>
+</footer>
+
 </html>
